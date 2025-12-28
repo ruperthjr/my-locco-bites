@@ -5,8 +5,7 @@
     "noEmit": false,
     "outDir": "./dist",
     "declaration": true,
-    "declarationMap": true,
-    "types": []
+    "declarationMap": true
   },
   "include": ["src"],
   "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.spec.ts", "src/**/*.spec.tsx"]
