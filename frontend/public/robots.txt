@@ -1,0 +1,47 @@
+# Locco Bites - Robots.txt
+
+# Allow all bots to access public content
+User-agent: *
+Allow: /
+
+# Disallow access to sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /orders/
+Disallow: /auth/
+
+# Disallow access to internal files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.ts$
+Disallow: /*.tsx$
+
+# Allow access to assets
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://loccobites.com/sitemap.xml
+
+# Crawl-delay for specific bots (optional)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

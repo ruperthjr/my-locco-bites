@@ -2,12 +2,211 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Locco Bites - Artisan Bakery & Coffee Shop</title>
+    <meta name="title" content="Locco Bites - Artisan Bakery & Coffee Shop" />
+    <meta name="description" content="Fresh, handcrafted baked goods and artisan coffee. Order online for delivery or pickup. Custom cakes, pastries, breads, and more." />
+    <meta name="keywords" content="bakery, coffee, pastries, cakes, bread, custom cakes, artisan, fresh baked" />
+    <meta name="author" content="Locco Bites" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://loccobites.com/" />
+    <meta property="og:title" content="Locco Bites - Artisan Bakery & Coffee Shop" />
+    <meta property="og:description" content="Fresh, handcrafted baked goods and artisan coffee. Order online for delivery or pickup." />
+    <meta property="og:image" content="/assets/images/brand/og-image.jpg" />
+    <meta property="og:site_name" content="Locco Bites" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://loccobites.com/" />
+    <meta property="twitter:title" content="Locco Bites - Artisan Bakery & Coffee Shop" />
+    <meta property="twitter:description" content="Fresh, handcrafted baked goods and artisan coffee. Order online for delivery or pickup." />
+    <meta property="twitter:image" content="/assets/images/brand/twitter-image.jpg" />
+    <meta name="twitter:creator" content="@loccobites" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#f0710b" />
+    <meta name="msapplication-TileColor" content="#f0710b" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Locco Bites" />
+    
+    <!-- Preconnect to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Font Loading -->
+    <link rel="preload" href="/assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Critical CSS will be injected here by build process -->
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Locco Bites",
+      "description": "Artisan bakery and coffee shop offering fresh, handcrafted baked goods",
+      "url": "https://loccobites.com",
+      "logo": "https://loccobites.com/assets/images/brand/logo-full.png",
+      "image": "https://loccobites.com/assets/images/brand/og-image.jpg",
+      "priceRange": "$$",
+      "servesCuisine": "Bakery, Coffee",
+      "telephone": "+1234567890",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Baker Street",
+        "addressLocality": "Your City",
+        "addressRegion": "ST",
+        "postalCode": "12345",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/loccobites",
+        "https://www.instagram.com/loccobites",
+        "https://twitter.com/loccobites"
+      ]
+    }
+    </script>
+    
+    <style>
+      /* Critical CSS for initial render */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        min-height: 100vh;
+        background-color: #ffffff;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading screen */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #f0710b 0%, #e15706 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.3s ease-out;
+      }
+      
+      .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- React Root -->
     <div id="root"></div>
+    
+    <!-- Main Script -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Remove loading screen after app loads -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+            setTimeout(function() {
+              loadingScreen.remove();
+            }, 300);
+          }
+        }, 500);
+      });
+    </script>
+    
+    <!-- No JavaScript fallback -->
+    <noscript>
+      <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: #dc2626;
+        color: white;
+        text-align: center;
+        font-family: system-ui, -apple-system, sans-serif;
+        z-index: 10000;
+      ">
+        <strong>JavaScript is required</strong><br />
+        Please enable JavaScript in your browser to use Locco Bites.
+      </div>
+    </noscript>
   </body>
 </html>
